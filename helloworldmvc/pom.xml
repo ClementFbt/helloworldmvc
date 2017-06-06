@@ -48,4 +48,10 @@
        </plugin>
     </plugins>
   </reporting>
+  <distributionManagement>
+  <site>
+  <id>hellowordmaven</id>
+  <url>file:///C:/temp/</url>  
+  </site>
+  </distributionManagement>
 </project>
