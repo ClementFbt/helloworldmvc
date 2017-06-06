@@ -13,19 +13,8 @@ public class DAOHelloWorld {
 	private DAOHelloWorld() {
 	}
 
-	public String getHelloWorldMessage() {
-		return DAOHelloWorld.helloWorldMessage;
-	}
-
-	public void setHelloWorldMessage(String helloWorldMessage) {
-		DAOHelloWorld.helloWorldMessage = helloWorldMessage;
-	}
-
 	public static DAOHelloWorld getInstance() {
 		return DAOHelloWorld.instance;
-	}
-
-	public void setInstance(DAOHelloWorld instance) {
 	}
 
 	private void readFile() {
@@ -40,5 +29,13 @@ public class DAOHelloWorld {
 		} catch (final IOException f) {
 			f.printStackTrace();
 		}
+	}
+
+	public String getHelloWorldMessage() {
+		return DAOHelloWorld.helloWorldMessage;
+	}
+
+	public void setHelloWorldMessage(String helloWorldMessage) {
+		DAOHelloWorld.helloWorldMessage = helloWorldMessage;
 	}
 }
