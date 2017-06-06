@@ -1,31 +1,44 @@
 package org.helloworldmvc.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class DAOHelloWorld {
-	private final String		helloWorldMessage	= null;
-	private final DAOHelloWorld	instance			= null;
-	private final String		FileName			= "HelloWorld.txt";
+	private static String			helloWorldMessage	= null;
+	private static DAOHelloWorld	instance			= null;
+	private final String			FileName			= "HelloWorld.txt";
 
-	public DAOHelloWorld() {
-
+	private DAOHelloWorld() {
 	}
 
 	public String getHelloWorldMessage() {
-		return this.helloWorldMessage;
+		return DAOHelloWorld.helloWorldMessage;
 	}
 
 	public void setHelloWorldMessage(String helloWorldMessage) {
-
+		DAOHelloWorld.helloWorldMessage = helloWorldMessage;
 	}
 
-	public DAOHelloWorld getInstance() {
-		return this.instance;
+	public static DAOHelloWorld getInstance() {
+		return DAOHelloWorld.instance;
 	}
 
 	public void setInstance(DAOHelloWorld instance) {
-
 	}
 
-	public void readFile() {
-
+	private void readFile() {
+		try {
+			final File file = new File(this.FileName);
+			FileReader fileReader = null;
+			fileReader = new FileReader(file);
+			DAOHelloWorld.helloWorldMessage = fileReader.toString();
+			fileReader.close();
+		} catch (final FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (final IOException f) {
+			f.printStackTrace();
+		}
 	}
 }
